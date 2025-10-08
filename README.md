@@ -1,5 +1,8 @@
 # libqui
 qt平台的界面库，内部封装了控件、主题、文件操作类和软件自动更新模块，可供使用者方便快速开发。
+效果图展示：
+<img width="1598" height="1257" alt="libqui" src="https://github.com/user-attachments/assets/33572bb5-2156-4d03-a13f-13ff29a41167" />
+
 ```
 一、环境要求
 Qt 版本：需 ≥ 5.14.2（代码中明确校验：#error the qt version must be greater than or equal to 5.14.2）。
@@ -240,4 +243,3 @@ if (!qui::appIsLatestVersion()) {
 扩展功能：若需 SQL 支持，需定义宏QUI_SUPPORT_SQL（此时会引入 QSql 相关头文件）。
 通过以上步骤，可快速利用libqui的封装能力简化 Qt 界面开发，减少重复编码。更多控件和接口的使用可参考change_logs.txt中记录的版本更新细节。
 ```
-<img width="1598" height="1257" alt="libqui" src="https://github.com/user-attachments/assets/33572bb5-2156-4d03-a13f-13ff29a41167" />
