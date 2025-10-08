@@ -1,0 +1,130 @@
+日期:2025.9.15 版本:1.0.0.14
+1.增加qui::LoginDialog类.
+2.增加qui::CaptchaLabel类.
+3.增加QUI_APP_IS_RUNNING宏,用于重复启动拦截.
+4.增加QUI_CREATE_TRAY宏,用于创建系统托盘.
+5.增加qui::appIsLatestVersion接口,用于检查当前版本是否为最新版本.
+6.增加qui::setConnectServerTimeout接口,用于设置全局连接服务器超时时间.
+7.增加qui::connectServerTimeout接口,用于获取全局连接服务器超时时间.
+8.修复qui::FeedbackDialog如果提交反馈次数上限,无法在下一个日期再次提交反馈的bug.
+
+
+日期:2025.7.18 版本:1.0.0.13
+1.修复qui::Widget::show调用多次,导致窗口缩小的问题.
+2.修复qui::VirtualKeyboard如果QApplication::focusWidget找到的焦点是自身,会引起无限递归导致程序崩溃的问题.
+3.修改qui::Ini::clearThreadCtx只会清理子线程的上下文.
+4.修改qui::Ini::clearThreadCtx为clearCtx.
+5.增加qui::Ini::ctxCount接口.
+6.增加qui::Ini自动回收上下文功能.
+7.删除qui::ThreadCtxLocker类与QUI_INI_THREAD_CTX_LOCKER宏.
+8.修复qui::Ini::allKeys,qui::Ini::childKeys,qui::Ini::childGroups例如同时存在VCC_1V2与VCC_1V25_M,无法返回正确结果的bug.
+
+
+日期:2025.7.3 版本:1.0.0.12
+1.增加DateValidator类,用于判断用户输入日期是否合法.
+2.增加CalendarLineEdit类,用户可调用日期控件,进行正确的选择日期并输入到LineEdit中.
+3.增加SearchLineEdit类,用户点击图标将会发送iconClicked信号.
+4.增加SelectFieldWidget类,用于数据库中表字段结合条件进行查询数据.
+5.增加DateTimeValidator类,用于判断用户输入日期时间是否合法.
+6.qui::Widget类增加接口enableWithMainWindowSameSize,disableWithMainWindowSameSize.
+7.qui::Widget类增加接口isContainsMainWidget.
+8.qui::TextViewerDialog构造函数中第二个参数原来为文本内容现修改为文件路径.
+9.增加qui::TextLoader,PlainTextViewer类.
+10.增加qui::LogViewerDialog类,支持大文件加载.
+11.将qui::InputBox::choose修改为qui::InputBox::select.
+12.qui::InputBox::normal,qui::InputBox::select,qui::InputBox::loop支持可自定义大小.
+13.qui::Ini支持QStringList,QJsonObject,QJsonArray和QPair的写入.
+14.增加宏QUI_CURRENT_PATH,QUI_DESKTOP_PATH,QUI_TEMP_PATH.
+15.qui::Ini重写,完全与QSettings一致,支持QByteArry写入,多线程安全,多文件多线程支持beginGroup&beginWriteArray和beginReadArray.
+16.qui::SettingDialog支持qui::Ini嵌套加载和可自定义添加与删除节点(鼠标右击会跳出添加/删除),目前仅支持二级数组与分组.
+17.qui::Ini增加ThreadCtxLocker,GroupLocker,ReadArrayLocker,WriteArrayLocker用于处理复杂的逻辑情况下导致错乱的问题.
+18.qui::Ini支持加密与非加密混合读写,如果加密数据只会对数据文件进行加密,不会对注释文件进行加密.
+
+
+日期:2025.4.10 版本:1.0.0.11
+1.qui::Ini支持多线程安全.
+2.qui::Ini增加加密功能.
+3.qui::TreeWidget::initialize与qui::SettingDialog接口修改,支持qui::Ini类设置图标和隐藏节功能.
+4.增加宏QUI_INI_MUTEX_LOCKER,用于线程锁的RAII.
+
+
+日期:2025.3.5 版本:1.0.0.10
+1.qui::Ini类库增加增删改注释功能和修复contains不存在某个key时返回true的bug.
+2.qui::TreeWidget支持将qui::Ini类库一键加载,显示配置参数功能.
+3.修改qui::InpuBox::choose接口,支持设置选择器条目默认值.
+4.增加qui::SettingDialog类.
+
+
+日期:2025.1.26 版本:1.0.0.9
+1.修复按ESC键导致程序退出的bug.
+
+
+日期:2025.1.12 版本:1.0.0.8
+1.更新invo_mes_plugin.dll版本到1.0.0.14.
+2.适配新版本invo_mes_plugin.dll.
+3.支持强制更新与定时推送更新.
+4.修复Ini类库,内存泄漏的bug.
+5.增加检测10分钟内,用户是否在使用当前软件,如果不在使用,并且有可用更新和启用强制更新,则将会自动更新.
+
+
+日期:2024.12.19 版本:1.0.0.7
+1.修复registerUpdateEvent第一次调用时,无论是否有可用更新都会触发更新事件.
+2.修改qui::TreeWidget::getItemLevel为public.
+
+
+日期:2024.7.24 版本:1.0.0.6
+1.修复QMenu中的QAction增加图片或checkable属性导致布局出现问题的bug.
+2.TreeWidget增加图标缓存,优化内存占用.
+3.修改命名规则.
+4.增加注册检查更新事件功能.
+5.增加创建主窗口如果有可用更新,显示红点更新提示.
+6.增加接口setServerHostName,getServerHostName,setServerPort,getServerPort,registerUpdateEvent,unregisterUpdateEvent.
+7.修改仅双击标题栏窗口最大化.
+
+
+日期:2024.4.14 版本:1.0.0.5
+1.增加setEventFilter接口用于处理mainWidget的部分事件.
+2.增加setNativeEvent接口用于处理mainWidget的原生事件.
+3.修复自动更新,如果需要管理员权限启动程序,导致启动程序失败的问题.
+4.修改接口Widget::self为Widget::findSelf.
+5.增加ThreadPool类库.
+
+
+日期:2024.3.26 版本:1.0.0.4
+1.修复QMenu::item,如果设置了checkable属性,文字显示不对齐的问题.
+2.增加QMenu::indicator::checked,checked:disabled,unchecked,unchecked:disabled自定义图标.
+
+
+日期:2024.2.21 版本:1.0.0.3
+1.增加Log类.
+2.增加_OverrideMoveEvent类.
+3.增加QUIOverrideMoveEvent函数.
+4.增加VirtualKeyboard类.
+5.增加QUISql类.
+6.优化窗口关闭逻辑.
+7.增加宏QUI_CLOSE_TO_TRAY,QUI_QUIT_ON_CLOSE.
+
+
+日期:2024.2.4 版本:1.0.0.2
+1.修复标题栏居中显示异常的问题.
+2.增加类
+CustomButton
+AboutDialog
+CustomSlider
+FeedbackDialog
+ProgressDialog
+LoadingDialog
+TextViewerDialog
+UpdateDialog
+TreeWidget
+PageWidget
+Ini
+3.优化窗口显示布局.
+4.升级invo_mes_plugin.dll版本到1.0.0.11
+5.MsgBox::question增加可设置默认按钮选择.
+6.更改Widget::Widget和Widget::Style枚举名称.
+
+
+日期:2024.1.4 版本:1.0.0.1
+1.第一个正式版本发行.
+
