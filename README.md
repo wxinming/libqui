@@ -2,7 +2,7 @@
 qt平台的界面库，内部封装了控件、主题、文件操作类和软件自动更新模块，可供使用者方便快速开发。<br>
 效果图展示：
 <img width="1598" height="1257" alt="libqui" src="https://github.com/user-attachments/assets/9295272a-342d-4b7e-9710-7e1a93e5d2db" />
-```
+```c++
 一、环境要求
 Qt 版本：需 ≥ 5.14.2（代码中明确校验：#error the qt version must be greater than or equal to 5.14.2）。
 编码：默认使用 UTF-8（#pragma execution_character_set("utf-8")）。
